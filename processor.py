@@ -102,6 +102,7 @@ class Processor:
 
         Inputs:
         df: [pandas dataframe] original dataframe containing the data
+
         Outputs:
         df: [pandas dataframe] containing the original dataframe with new columns 'city' and 'year'
         """
