@@ -158,7 +158,7 @@ print(
     'between the city images and the intrusive images.\nThis difference is that the intrusive image has a "jfif" '
     'parameter in its metadata which is missing in the metadata of the city images. \n'
     'Consequently, to detect which images are intrusive or not, I have studied the metadata of each image detecting '
-    'if they do not have this parameter specified (city image) or if they do (intrusive image).')
+    'if they do not have this parameter specified (city image) or if they do (intrusive image). ')
 
 print('-------')
 
