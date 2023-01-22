@@ -11,6 +11,8 @@ class Processor:
         first_images_by_city_file_paths: [list] list containing the file path of the first image for each unique
         city in the dataframe.
         """
+
+        # obtain each city mentioned in the data frame
         city_names = df['city_name'].unique()
 
         first_images_by_city_file_paths = []
@@ -21,7 +23,7 @@ class Processor:
             first_images_by_city_file_paths.append(first_file_path)
         return first_images_by_city_file_paths
 
-    def get_image_objects_by_label_file_name(self, df, label_name):
+    def get_image_objects_by_file_name(self, df, label_name):
         """
         This function returns the rows from the given dataframe (df) that have the specified label_name.
 
