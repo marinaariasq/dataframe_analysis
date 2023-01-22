@@ -9,6 +9,8 @@ from popularity_analyzer import PopularityAnalyzer
 class TestPopularity(unittest.TestCase):
 
     def test_get_df_without_top3_popular_objects(self):
+        # test that verifies that the get_df_without_top3_popular_objects function returns the dataframe when it does
+        # not contain any of the top 3 object names
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image2_bonn.txt'],
                                 'object_name': ['dog', 'dog', 'dog', 'dog', 'lion']})
@@ -22,6 +24,8 @@ class TestPopularity(unittest.TestCase):
         self.assertTrue(results_from_df_test.equals(expected_df))
 
     def test_get_df_without_top3_popular_objects_with_popular_object(self):
+        # test that verifies that the get_df_without_top3_popular_objects function returns an empty list when the
+        # dataframe contain one or various of the top 3 object names
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt'],
                                 'object_name': ['car', 'dog', 'dog', 'dog']})
@@ -32,6 +36,9 @@ class TestPopularity(unittest.TestCase):
         self.assertEqual(results_from_df_test, expected_df)
 
     def test_get_popularity_of_objects_under_3(self):
+        # test that verifies that the get_popularity_of_objects function returns a popularity ordered dictionary
+        # of 3 keys when the dataframe contain three different object_names repeatedly but each with a different repeat
+        # number
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image2_berlin.txt', 'image3_berlin.txt',
                                               'image3_berlin.txt', 'image1_bonn.txt', 'image2_bonn.txt'],
                                 'object_name': ['dog', 'dog', 'dog', 'cat', 'cat', 'lion']})
@@ -42,6 +49,9 @@ class TestPopularity(unittest.TestCase):
         self.assertEqual(expected_popularity_dict, results_from_df_test)
 
     def test_get_popularity_of_objects_above_3_equal_count(self):
+        # test that verifies that the get_popularity_of_objects function returns a popularity ordered dictionary
+        # of more than 3 keys when the dataframe contain more than 3 different object_names repeatedly but each one with
+        # the same repeat number
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image1_berlin.txt'],
                                 'object_name': ['dog', 'person', 'cat', 'lion']})
@@ -52,6 +62,9 @@ class TestPopularity(unittest.TestCase):
         self.assertEqual(expected_popularity_dict, results_from_df_test)
 
     def test_get_popularity_of_objects_above_3_different_first_one(self):
+        # test that verifies that the get_popularity_of_objects function returns a popularity ordered dictionary
+        # of 1 keys when the dataframe contain more than 3 different object_names repeatedly but each one have the same
+        # repeat number except one that have a higher number
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image1_berlin.txt'],
                                 'object_name': ['dog', 'dog', 'cat', 'lion', 'giraffe']})
@@ -62,6 +75,9 @@ class TestPopularity(unittest.TestCase):
         self.assertEqual(expected_popularity_dict, results_from_df_test)
 
     def test_get_popularity_of_objects_above_3_different_first_and_second_one(self):
+        # test that verifies that the get_popularity_of_objects function returns a popularity ordered dictionary
+        # of 2 keys when the dataframe contain more than 3 different object_names repeatedly but each one have the same
+        # repeat number except the first and second one that have a higher different number.
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt'],
@@ -73,6 +89,9 @@ class TestPopularity(unittest.TestCase):
         self.assertEqual(expected_popularity_dict, results_from_df_test)
 
     def test_get_popularity_of_objects_above_3_first_and_second_one_same_count(self):
+        # test that verifies that the get_popularity_of_objects function returns a popularity ordered dictionary
+        # of 2 keys when the dataframe contain more than 3 different object_names repeatedly but each one have the same
+        # repeat number except the first and second one that have the same higher number.
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt'],
@@ -84,6 +103,9 @@ class TestPopularity(unittest.TestCase):
         self.assertEqual(expected_popularity_dict, results_from_df_test)
 
     def test_get_popularity_of_objects_above_3_the_first_three_ones_have_different_counts(self):
+        # test that verifies that the get_popularity_of_objects function returns a popularity ordered dictionary
+        # of 3 keys when the dataframe contain more than 3 different object_names repeatedly but each one have the same
+        # repeat number except the first, second and third one that have a higher different number.
         df_test = pd.DataFrame({'file_name': ['image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
                                               'image1_berlin.txt', 'image1_berlin.txt', 'image1_berlin.txt',
