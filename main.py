@@ -148,6 +148,8 @@ for file in label_file_names:
         imagetype_dataframe.loc[imagetype_dataframe['file_name'] == file, 'Image_type'] = type_image
 
 print('Intrusive images detected: \n {} \n '.format(intrusive_files))
+
+# TODO : traduce the text
 print(
     'Per trobar les images intruses he analitzat la informació que es trobava present a les metadates.Per tal de'
     'poder accedir a aquesta informació' +
