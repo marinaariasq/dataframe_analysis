@@ -11,6 +11,12 @@ class Validation:
         This function checks the validity of a file located at 'path_file'. The file is in the format of a CSV with 6
         columns, where the first column must be an integer between 0 and 80, and the remaining 5 columns must be
         floats between 0 and 1. If the file is invalid, the function returns False, otherwise it returns True.
+
+        Inputs:
+        path_file : [string] path where the file is located
+
+        Outputs:
+        True or False [boolean]
         """
 
         with open(path_file, 'r') as f:
@@ -42,8 +48,15 @@ class Validation:
         This function checks if an image located at 'img_path' is an intrusive image. The function uses the Pillow
         library to open the image, and checks if the 'jfif' marker is present in the image. If the marker is present,
         the function returns False, indicating that the image is intrusive. Otherwise, it returns True.
+
+        Inputs:
+        path_file : [string] path where the file is located
+
+        Outputs:
+        True or False [boolean]
         """
         with Image.open(img_path) as img:
+            # check if image metadata has de jfif parameter
             if 'jfif' in img.info:
                 return False
             return True
