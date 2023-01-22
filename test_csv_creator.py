@@ -9,6 +9,8 @@ from csv_creator import CsvCreator
 
 class TestCsvCreator(unittest.TestCase):
     def test_create_csv_file_from_df(self):
+        # test that verifies that the create_csv_file_from_df function returns a file name that is the same we specified
+        # before and that the csv file has been created.
         df_test = pd.DataFrame({'file_name': ['berlin_2020.txt', 'berlin_2020.txt', 'berlin_2020.txt',
                                               'bonn_2022.txt', 'bonn_2022.txt', 'bonn_2022.txt'],
                                 'object_name': ['car', 'person', 'dog', 'person', 'person', 'car'],
