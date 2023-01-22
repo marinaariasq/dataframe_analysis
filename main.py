@@ -32,9 +32,9 @@ with open(PATH_FILE_CLASS_NAME, 'r') as file:
 data = []
 corrupt_files_names = []
 for file in list_labels:
-    #  find the .txt file with the specified label name
+    # find the .txt file with the specified label name
     file_path = os.path.join(PATH_LABELS_FILES_FOLDER, file)
-    #  checks if the .txt file is in yolo format, and if so, adds the information to the dataframe
+    # checks if the .txt file is in yolo format, and if so, adds the information to the dataframe
     if Validation.check_yolo(file_path):
         df = pd.read_csv(file_path, delimiter=' ',
                          names=['object_id', 'coord_x', 'coord_y', 'rect_w', 'rect_h', 'YOLO_prob'])
