@@ -31,7 +31,6 @@ with open(PATH_FILE_CLASS_NAME, 'r') as file:
 
 data = []
 corrupt_files_names = []
-# Loop through each file in list_labels
 for file in list_labels:
     #  find the .txt file with the specified label name
     file_path = os.path.join(PATH_LABELS_FILES_FOLDER, file)
